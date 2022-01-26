@@ -15,12 +15,14 @@ class BooksController < ApplicationController
       render :edit
     end
   end
+  
   def destroy
   book = Book.find(params[:id])
   book.destroy
   redirect_to books_path
   flash[:notice] = "Book was successfully destroyed."
   end
+  
   def create
     @book = Book.new(book_params)
     if @book.save
@@ -31,6 +33,7 @@ class BooksController < ApplicationController
       render :index
     end
   end
+  
   def show
     @book = Book.find(params[:id])
   end
